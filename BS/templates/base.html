@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTERBIKE</title>
+    <link rel="icon" type="image/png" href="{% static 'img/logos/logo.png' %}">
+
+    <!-- CSS BASE  -->
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+    {% block css %}
+    {% endblock css %}
+
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:500,600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <!-- Bloque para CSS  requeridoo-->
+
+
+
+
+</head>
+
+<body>
+        <header>
+
+            <input type="checkbox" name="" id="menu-bar">
+            <label class="icon-align-justify" for="menu-bar"></label>
+            <nav class="menu">
+                <a href="{% url 'IND' %} ">Home</a>
+                <a href="{% url 'QUIENESSOMOS' %}">Quienes somos</a>
+                <a href="{% url 'GALE' %} ">Galeria</a>
+                <a href="{% url 'AGENDARHORA' %} ">Agenda tu Bici</a>
+                <a href="{% url 'TIENDA' %} ">Tienda</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'REGREPARACION' %}  ">Reparacion</a>
+                <a href="">Bienvenido: {{user.first_name}}</a>
+                <a href="{% url 'ADMINISTRACION' %} ">Mis Servicios</a>
+                <a href="{% url 'CERRAR' %}">Cerrar sesion</a>
+                {% else %}
+                <a href="{% url 'LOGIN' %} ">Inicia sesion</a>
+                <a href="{% url 'REGISTRATE' %}  ">Registrate</a>
+
+                {% endif %}
+                {% if user.first_name == "ADM" %}
+                <a href="{% url 'ADMINISTRACION' %} ">ADM</a>
+                {% endif %}
+
+
+
+
+                <input class="buscador" type="text" placeholder="  ¿Que buscas?">
+
+
+            </nav>
+            <nav id="contenedor-logo-principal">
+                <img src="{% static 'img/logos/logo.png' %}" alt="">
+                <h1>MasterBike </h1>
+            </nav>
+
+        </header>
+
+    <main>
+        <div class="banner">
+            <div class="contenedor">
+                <h2>MasterBike</h2>
+                <p>El lugar para su bicicleta</p>
+                <a href="{% url 'INFO' %}">Informaciones</a>
+            </div>
+
+        </div>
+
+
+    {% block contenido %}
+
+    {% endblock contenido %}
+
+  </main>
+
+    <footer>
+        <section class="footer-pie">
+            <div class="contenedor">
+                <p>®MasterBike 2021- Sitio web</p>
+            </div>
+            <div class="redes">
+                <a href="">
+                    <img src="{% static 'img/footer/face.png' %} " alt="">
+
+                </a>
+                <a href="">
+                    <img src="{% static 'img/footer/instagram.png' %} " alt="">
+
+                </a>
+            </div>
+
+        </section>
+
+    </footer>
+
+
+   <!-- Bloque para JS requerido  -->
+    {% block js %}
+    {% endblock js %}
+
+
+    <!-- JS BASE -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block contenido %}
+
+    <h4>Puedes Arrendar una bicicleta con nosotros, Durante el mes de Julio, tenemos oferta de $1000 pesos la hora
+      <br>APROVECHA YA
+    <br> Siempre podras revisar el estado de tu reserva en <a href="{% url 'ADMINISTRACION' %} ">Mis Servicios</a> </h4>
+
+
+
+
+            <section class="form-re" >
+                <article>
+                    <h4>Agenda tu hora</h4>
+                    <form action="{% url 'AGENDARHORA' %}" method="POST">
+                      {% csrf_token %}
+                        <h3>usuario : {{user.first_name}}</h3>
+                        <p>Telefono </p>
+                        <input class="controls" type="number" name="txtTelefono" id="txtTelefono" required="">
+
+                        <p>Ingrese Fecha </p>
+                        <input class="controls" type="date" name="cbFecha" id="cbFecha" required="" min="sysdate">
+
+
+                       <center>
+                         <p>Selecciona una bicicleta</p>
+                        <select class="op" name="cboBici" id="cboBici">
+                            <option value="" disabled selected>Qué Tipo de Bicicleta Quieres</option>
+                            <optgroup label="Disponibles en nuestra Sucursal">
+                                <option value="Bicicletas de Ruta">Bicicletas de Ruta</option>
+                                <option value="Bicicletas para Ruta de Barra Plana">Bicicletas para Ruta de Barra Plana</option>
+                                <option value="Bicicletas Urbanas">Bicicletas Urbanas</option>
+                                <option value="Bicicletas Plegables">Bicicletas Plegables</option>
+                                <option value="Bicicletas de Gravilla o Gravel">Bicicletas de Gravilla o Gravel</option>
+
+                            </optgroup>
+
+
+
+                        </center>
+                        <input class="botons" type="submit" value="Agendar">
+                        <p>Estoy de acuerdo con <a id="a_form" href="{% url 'INFO' %}">Terminos y condiciones</a> </p>
+                        <p>Listo para arrendar tubicicleta {{user.first_name}}</p>
+                        <h2>{{mensaje}}</h2>
+                    </form>
+
+                </article>
+
+
+            </section>
+
+    {% endblock contenido %}

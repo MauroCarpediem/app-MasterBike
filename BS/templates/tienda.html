@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<div class="contenido-tienda">
+    {% for prod in productos %}
+
+    <a href="{% url 'FICHA' prod.nombre %}">
+        <img class="prod" src="{{prod.foto.url}}" alt="">
+        <h3>{{prod.nombre}}</h3>
+        <input class="btn-tienda" type="" value="Ver mas">
+        <input class="btn-tienda" type="" value="Agregar">
+
+    </a>
+
+    {% endfor %}
+</div>
+
+
+{% endblock contenido %} {% block js %}
+
+<script src="https://kit.fontawesome.com/3e0e4dbacb.js" crossorigin="anonymous"></script>
+<script src="dist/js/lightbox-plus-jquery.js"></script>
+
+
+
+
+{% endblock js %}
+
+
+
+</body>
+
+</html>

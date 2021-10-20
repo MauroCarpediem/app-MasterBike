@@ -1,0 +1,53 @@
+.tiposbicis {
+    max-width: 950px;
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+#tipobicih2 {
+    color: orange;
+    text-align: center;
+}
+
+.tiposbicis a {
+    color: red;
+    text-decoration: none;
+}
+
+.tiposbicis>section {
+    display: block;
+    position: static;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    text-align: center;
+    border: solid 3px white;
+}
+
+#tipobici img {
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+#biciText {
+    margin-top: 10px;
+}
+
+#bici h3 {
+    text-align: center;
+}
+
+.tiposbicis img {
+    width: 100%;
+    height: 300px;
+    vertical-align: top;
+    object-fit: cover;
+    position: inherit;
+}
+
+#link_agendar p {
+    font-size: x-large;
+}

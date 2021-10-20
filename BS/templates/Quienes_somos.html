@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %} {% block contenido %}
+</div>
+<section id="bienvenida">
+    <h2>Quienes somos</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, molestiae! Aut numquam iusto non asperiores qui, facere tenetur laudantium ab aperiam voluptate dolorem odio vero debitis architecto autem corrupti? Praesentium!
+    </p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque illum autem modi incidunt placeat nemo atque ullam magni quia quisquam, reprehenderit ea nam commodi aliquam animi quasi id, accusantium dolore?</p>
+</section>
+<section id="sucursal">
+
+    <h3>Nuestra Sucursal Ubicada en San diego ... </h3>
+
+    <div class="contenedor">
+        <article>
+            <h4>SAN DIEGO</h4>
+            <a href="{% url 'SUCURSAL' %}">
+                <img src="{% static 'img/galeria/gale1.jpg' %}" alt="">
+
+            </a>
+        </article>
+
+    </div>
+</section>
+<!--       <section id="quienes_somos">
+            <img src="{% static 'img/cortes_y_mas/barber vintage.jpg' %}" alt="">
+
+        </section>
+ -->
+
+
+{% endblock contenido %}
+
+
+
+</body>
+
+</html>

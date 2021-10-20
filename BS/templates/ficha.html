@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% load static %} {% block contenido %}
+
+
+
+<section>
+    <div class="contenido-tienda">
+
+        <div class="contenedor">
+            <article>
+                <h3>nombre:{{productos.nombre}}</h3>
+                <h4>precio: ${{productos.precio}}</h4>
+                <img class="prod" src="{{productos.foto.url}}" alt="">
+                <p>Descripcion :{{productos.descripcion}}</p>
+
+                <section>
+                    <input class="btn-tienda" type="submit" value="Agregar">
+                </section>
+
+            </article>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock contenido %}

@@ -1,0 +1,53 @@
+#MODIFICAR REGISTRATE.HTML
+{% extends "base.html" %} {% load static %} {% block contenido %}
+
+
+<section class="form-re">
+    <article>
+        <h4>Registrate</h4>
+        <form method="post" action="{% url 'REGISTRATE' %}" onsubmit="return validarPass()">
+            {% csrf_token %}
+
+
+            <input class="controls" type="text" type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese su Nombre" required>
+            <input class="controls" type="text" type="text" name="txtApellido" id="txtApellido" placeholder="Ingrese su Apellido" required>
+            <input class="controls" type="text" type="email" name="txtEmail" id="txtEmail" placeholder="Ingrese su Correo" required>
+            <center>
+                <h5> Datos de Acceso</h5>
+            </center>
+            <br>
+            <input class="controls" type="text" type="text" name="txtUser" id="txtApellido" placeholder="Nombre de usuario" required>
+            <input class="controls" type="password" name="txtPass1" id="txtPass1" placeholder="nueva contraseña" required>
+            <center>
+                <h5> (la contraseña debe tener un minimo de 6 caracteres y un max de 32)</h5>
+            </center>
+            <input class="controls" type="password" name="txtPass2" id="txtPass2" placeholder="Confirme contraseña" required>
+
+
+
+            <input class="botons" type="submit" value="Registrate">
+            <input class="botons" type="reset" value="Limpiar">
+            <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a> </p>
+            <p> ¿Ya tienes cuenta? <a href="{% url 'LOGIN' %}"> Inicia sesión </a></p>
+
+        </form>
+    </article>
+</section>
+
+
+
+
+{% endblock contenido %}
+{% block js %}
+    <script>
+        function validarPass() {
+            var pass1 = document.getElementById(txtPass1).value;
+            var pass2 = document.getElementById(txtPass2).value;
+            if (pass1 != pass2) {
+                alert("Contraseñas son diferentes");
+                return false;
+            }
+            return true
+        }
+    </script>
+ {% endblock js %}

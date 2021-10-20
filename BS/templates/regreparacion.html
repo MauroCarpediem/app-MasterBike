@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contenido %}
+
+
+<h4>Antes de llevar tu bicicleta a nuestro taller, informanos de que ocurre para poder otorgar una fecha y poder evaluar la situacion.
+<br> Mientras mas nos detalles tu inconveniente podremos agilizar el proceso, te contactaremos y podras realizar el segumiento de tu Bicicleta en <a href="{% url 'ADMINISTRACION' %} ">Mis Servicios</a> </h4>
+
+
+
+<section class="form-re">
+  <form action="{% url 'REGREPARACION' %}" method="POST" enctype="multipart/form-data">
+    <div class="contenedor-input">
+    {% csrf_token %}
+      <h3>usuario : {{user.first_name}}</h3>
+
+      <p>Telefono </p>
+      <input class="controls" type="number" name="txtTelefono" id="txtTelefono" required="">
+
+      <p>Correo </p>
+      <input class="controls" type="email" name="txtCorreo" id="txtCorreo" placeholder="Ingrese su Correo" required>
+
+      <p>foto Parte dañada
+      <input type="file" name="txtImg" id="txtImg">
+      </p>
+
+      <br><br>
+      <p>Detalle <br>
+          <textarea name="txtDesc" id="" cols="30" rows="10"> Cuentanos que ocurre </textarea>
+      </p>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <input class="botons" type="submit" value="registrar">
+      <input class="botons" type="reset" value="Limpiar">
+
+        <p>{{mensaje}}</p>
+
+        </div>
+    </form>
+
+</section>
+
+
+
+{% endblock contenido %}
+
+
+</body>
+
+</html>
